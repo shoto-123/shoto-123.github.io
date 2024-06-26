@@ -40,7 +40,7 @@ button {
 /* Responsive Media Query for Phones */
 @media only screen and (max-width: 600px) {
     body{
-        background-image: url('background.gif');
+        background-image: url('background2.gif');
         background-size: cover;
         background-position: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
