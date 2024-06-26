@@ -10,7 +10,7 @@
     <!-- Page 1 -->
     <div id="page1" class="page active">
         <h2>Welcome to the Questionnaire</h2>
-        <p>Type your number</p>
+        <i>Type your number</i>
         <input type="text" id="userNumber"><br>
         <button type="button" onclick="showCodeInput()">Submit</button>
     </div>
@@ -19,10 +19,10 @@
     <div id="page2" class="page">
         <h2>Enter the Code for Your Number</h2>
         <p>Your number: <span id="displayNumber"></span></p>
+        <p id="errorMessage" style="color: red;"></p>
         <input type="text" id="userCode"><br>
         <button type="button" onclick="submitCode()">Submit Code</button>
         <p id="codeHint"></p>
-        <p id="errorMessage" style="color: red;"></p>
     </div>
 
     <!-- Questionnaire Pages -->
