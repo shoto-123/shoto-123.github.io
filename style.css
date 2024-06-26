@@ -1,0 +1,55 @@
+/* CSS for Desktop */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+body {
+    background-color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page {
+    border-radius: 15px;
+    background-color: rgb(183, 255, 251);
+    padding: 15px;
+    margin: 20px auto; /* Center the pages horizontally */
+    max-width: 600px; /* Limit width for better readability */
+}
+
+input, button {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive Media Query for Phones */
+@media only screen and (max-width: 600px) {
+    body{
+        background-color: red;
+    }
+
+
+    .page {
+        padding: 10px;
+        height: 400px;
+    }
+    input, button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

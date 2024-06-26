@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Page 1 -->
+    <div id="page1" class="page active">
+        <h2>Welcome to the Questionnaire</h2>
+        <p>Type your number</p>
+        <input type="text" id="userNumber"><br>
+        <button type="button" onclick="showCodeInput()">Submit</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page">
+        <h2>Enter the Code for Your Number</h2>
+        <p>Your number: <span id="displayNumber"></span></p>
+        <input type="text" id="userCode"><br>
+        <button type="button" onclick="submitCode()">Submit Code</button>
+        <p id="codeHint"></p>
+        <p id="errorMessage" style="color: red;"></p>
+    </div>
+
+    <!-- Questionnaire Pages -->
+    <div id="questionPages">
+        <div id="question1" class="page">
+            <h2>Question 1</h2>
+            <p>What is your favorite color?</p>
+            <input type="text" id="answer1"><br>
+            <button type="button" onclick="goToNextQuestion(1)">Next</button>
+        </div>
+        <div id="question2" class="page">
+            <h2>Question 2</h2>
+            <p>What is your favorite animal?</p>
+            <input type="text" id="answer2"><br>
+            <button type="button" onclick="goToNextQuestion(2)">Next</button>
+        </div>
+        <div id="question3" class="page">
+            <h2>Question 3</h2>
+            <p>What is your favorite food?</p>
+            <input type="text" id="answer3"><br>
+            <button type="button" onclick="goToNextQuestion(3)">Next</button>
+        </div>
+        <div id="question4" class="page">
+            <h2>Question 4</h2>
+            <p>What is your favorite hobby?</p>
+            <input type="text" id="answer4"><br>
+            <button type="button" onclick="goToNextQuestion(4)">Next</button>
+        </div>
+        <div id="question5" class="page">
+            <h2>Question 5</h2>
+            <p>What is your favorite book?</p>
+            <input type="text" id="answer5"><br>
+            <button type="button" onclick="goToNextQuestion(5)">Next</button>
+        </div>
+        <div id="question6" class="page">
+            <h2>Question 6</h2>
+            <p>What is your favorite movie?</p>
+            <input type="text" id="answer6"><br>
+            <button type="button" onclick="goToNextQuestion(6)">Next</button>
+        </div>
+        <div id="question7" class="page">
+            <h2>Question 7</h2>
+            <p>What is your favorite song?</p>
+            <input type="text" id="answer7"><br>
+            <button type="button" onclick="goToNextQuestion(7)">Next</button>
+        </div>
+        <div id="question8" class="page">
+            <h2>Question 8</h2>
+            <p>What is your favorite place to visit?</p>
+            <input type="text" id="answer8"><br>
+            <button type="button" onclick="goToNextQuestion(8)">Next</button>
+        </div>
+        <div id="question9" class="page">
+            <h2>Question 9</h2>
+            <p>What is your favorite season?</p>
+            <input type="text" id="answer9"><br>
+            <button type="button" onclick="goToNextQuestion(9)">Next</button>
+        </div>
+        <div id="question10" class="page">
+            <h2>Question 10</h2>
+            <p>What is your favorite holiday?</p>
+            <input type="text" id="answer10"><br>
+            <button type="button" onclick="submitQuestionnaire()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Final Page -->
+    <div id="finishedPage" class="page">
+        <h2>Finished!</h2>
+        <p>Completion time: <span id="completionTime"></span></p>
+    </div>
+
+    <script>
+        const codes = {
+            1: "agbc223",
+            2: "youth098",
+            3: "aaron123",
+            4: "chan2x",
+            5: "345buboy",
+            6: "jaybee475",
+            7: "eunice123",
+            8: "123eunice",
+            9: "567Arjay",
+            10: "audrey432"
+        };
+
+        function showCodeInput() {
+            const userNumber = parseInt(document.getElementById('userNumber').value);
+            if (userNumber >= 1 && userNumber <= 10) {
+                const alternateNumber = userNumber % 2 === 0 ? userNumber - 1 : userNumber + 1;
+                document.getElementById('displayNumber').textContent = userNumber;
+                document.getElementById('codeHint').textContent = `The code for number ${alternateNumber} is: ${codes[alternateNumber]}`;
+                document.getElementById('page1').classList.remove('active');
+                document.getElementById('page2').classList.add('active');
+            } else {
+                alert('Please enter a number between 1 and 10.');
+            }
+        }
+
+        function submitCode() {
+            const userNumber = parseInt(document.getElementById('userNumber').value);
+            const userCode = document.getElementById('userCode').value;
+            const correctCode = codes[userNumber];
+
+            if (userCode === correctCode) {
+                document.getElementById('page2').classList.remove('active');
+                document.getElementById('question1').classList.add('active');
+            } else {
+                document.getElementById('errorMessage').textContent = "Incorrect code. Please try again.";
+            }
+        }
+
+        function goToNextQuestion(currentQuestion) {
+            const currentQuestionId = `question${currentQuestion}`;
+            const nextQuestionId = `question${currentQuestion + 1}`;
+            document.getElementById(currentQuestionId).classList.remove('active');
+            document.getElementById(nextQuestionId).classList.add('active');
+        }
+
+        function submitQuestionnaire() {
+            document.getElementById('question10').classList.remove('active');
+            document.getElementById('finishedPage').classList.add('active');
+            const now = new Date();
+            const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
+            document.getElementById('completionTime').textContent = timeString;
+        }
+    </script>
+</body>
+</html>
