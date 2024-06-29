@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionnaire</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Page 1 -->
     <div id="page1" class="page active">
         <h2>Welcome to the Questionnaire</h2>
         <i>Type your number</i>
-        <input type="text" id="userNumber"><br>
+        <input type="text" id="userNumber" placeholder="put your number here"><br>
         <button type="button" onclick="showCodeInput()">Submit</button>
     </div>
 
@@ -20,73 +20,67 @@
         <h2>Enter the Code for Your Number</h2>
         <p>Your number: <span id="displayNumber"></span></p>
         <p id="errorMessage" style="color: red;"></p>
-        <input type="text" id="userCode"><br>
+        <input type="text" id="userCode" placeholder="input your code here"><br>
         <button type="button" onclick="submitCode()">Submit Code</button>
         <p id="codeHint"></p>
     </div>
 
     <!-- Questionnaire Pages -->
-    <div id="questionPages">
-        <div id="question1" class="page">
-            <h2>Question 1</h2>
-            <p>What is your favorite color?</p>
-            <input type="text" id="answer1"><br>
-            <button type="button" onclick="goToNextQuestion(1)">Next</button>
-        </div>
-        <div id="question2" class="page">
-            <h2>Question 2</h2>
-            <p>What is your favorite animal?</p>
-            <input type="text" id="answer2"><br>
-            <button type="button" onclick="goToNextQuestion(2)">Next</button>
-        </div>
-        <div id="question3" class="page">
-            <h2>Question 3</h2>
-            <p>What is your favorite food?</p>
-            <input type="text" id="answer3"><br>
-            <button type="button" onclick="goToNextQuestion(3)">Next</button>
-        </div>
-        <div id="question4" class="page">
-            <h2>Question 4</h2>
-            <p>What is your favorite hobby?</p>
-            <input type="text" id="answer4"><br>
-            <button type="button" onclick="goToNextQuestion(4)">Next</button>
-        </div>
-        <div id="question5" class="page">
-            <h2>Question 5</h2>
-            <p>What is your favorite book?</p>
-            <input type="text" id="answer5"><br>
-            <button type="button" onclick="goToNextQuestion(5)">Next</button>
-        </div>
-        <div id="question6" class="page">
-            <h2>Question 6</h2>
-            <p>What is your favorite movie?</p>
-            <input type="text" id="answer6"><br>
-            <button type="button" onclick="goToNextQuestion(6)">Next</button>
-        </div>
-        <div id="question7" class="page">
-            <h2>Question 7</h2>
-            <p>What is your favorite song?</p>
-            <input type="text" id="answer7"><br>
-            <button type="button" onclick="goToNextQuestion(7)">Next</button>
-        </div>
-        <div id="question8" class="page">
-            <h2>Question 8</h2>
-            <p>What is your favorite place to visit?</p>
-            <input type="text" id="answer8"><br>
-            <button type="button" onclick="goToNextQuestion(8)">Next</button>
-        </div>
-        <div id="question9" class="page">
-            <h2>Question 9</h2>
-            <p>What is your favorite season?</p>
-            <input type="text" id="answer9"><br>
-            <button type="button" onclick="goToNextQuestion(9)">Next</button>
-        </div>
-        <div id="question10" class="page">
-            <h2>Question 10</h2>
-            <p>What is your favorite holiday?</p>
-            <input type="text" id="answer10"><br>
-            <button type="button" onclick="submitQuestionnaire()">Submit</button>
-        </div>
+    <div id="question1" class="page">
+        <h2>Question 1</h2>
+        <p>Who is the topic of the lesson?</p>
+        <input type="text" id="answer1"><br>
+        <p id="error1" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(1)">Next</button>
+    </div>
+    <div id="question2" class="page">
+        <h2>Question 2</h2>
+        <p>Where was Philip from?</p>
+        <input type="text" id="answer2"><br>
+        <p id="error2" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(2)">Next</button>
+    </div>
+    <div id="question3" class="page">
+        <h2>Question 3</h2>
+        <p>Who is Philip's friend?</p>
+        <input type="text" id="answer3"><br>
+        <p id="error3" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(3)">Next</button>
+    </div>
+    <div id="question4" class="page">
+        <h2>Question 4</h2>
+        <p>How many people were fed in John 6:1-15?</p>
+        <input type="text" id="answer4"><br>
+        <p id="error4" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(4)">Next</button>
+    </div>
+    <div id="question5" class="page">
+        <h2>Question 5</h2>
+        <p>How many Philips are mentioned in the Bible?</p>
+        <input type="text" id="answer5"><br>
+        <p id="error5" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(5)">Next</button>
+    </div>
+    <div id="question6" class="page">
+        <h2>Question 6</h2>
+        <p>What is Philip's Greek name?</p>
+        <input type="text" id="answer6"><br>
+        <p id="error6" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(6)">Next</button>
+    </div>
+    <div id="question7" class="page">
+        <h2>Question 7</h2>
+        <p>What is the most used book of the Bible in the lesson?</p>
+        <input type="text" id="answer7"><br>
+        <p id="error7" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(7)">Next</button>
+    </div>
+    <div id="question8" class="page">
+        <h2>Question 8</h2>
+        <p>In what month is the anniversary of our church?</p>
+        <input type="text" id="answer8"><br>
+        <p id="error8" style="color: red;"></p>
+        <button type="button" onclick="submitQuestionnaire()">Submit</button>
     </div>
 
     <!-- Final Page -->
@@ -107,6 +101,17 @@
             8: "123eunice",
             9: "567Arjay",
             10: "audrey432"
+        };
+
+        const answers = {
+            1: "philip",
+            2: "bethsaida",
+            3: "nathaniel",
+            4: "5000",
+            5: "4",
+            6: "philippos",
+            7: "john",
+            8: "march"
         };
 
         function showCodeInput() {
@@ -135,20 +140,44 @@
             }
         }
 
-        function goToNextQuestion(currentQuestion) {
-            const currentQuestionId = `question${currentQuestion}`;
-            const nextQuestionId = `question${currentQuestion + 1}`;
-            document.getElementById(currentQuestionId).classList.remove('active');
-            document.getElementById(nextQuestionId).classList.add('active');
+        function validateAnswer(questionNumber) {
+            const answerInput = document.getElementById(`answer${questionNumber}`).value.trim();
+            const correctAnswer = answers[questionNumber];
+
+            if (answerInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                const currentQuestionId = `question${questionNumber}`;
+                const nextQuestionId = `question${questionNumber + 1}`;
+
+                document.getElementById(currentQuestionId).classList.remove('active');
+                if (nextQuestionId === 'question9') {
+                    document.getElementById('question8').classList.remove('active');
+                    document.getElementById('finishedPage').classList.add('active');
+                    const now = new Date();
+                    const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
+                    document.getElementById('completionTime').textContent = timeString;
+                } else {
+                    document.getElementById(nextQuestionId).classList.add('active');
+                }
+            } else {
+                document.getElementById(`error${questionNumber}`).textContent = "Incorrect answer. Please try again.";
+            }
         }
 
         function submitQuestionnaire() {
-            document.getElementById('question10').classList.remove('active');
-            document.getElementById('finishedPage').classList.add('active');
-            const now = new Date();
-            const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
-            document.getElementById('completionTime').textContent = timeString;
+            const answerInput = document.getElementById('answer8').value.trim();
+            const correctAnswer = answers[8];
+
+            if (answerInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                document.getElementById('question8').classList.remove('active');
+                document.getElementById('finishedPage').classList.add('active');
+                const now = new Date();
+                const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
+                document.getElementById('completionTime').textContent = timeString;
+            } else {
+                document.getElementById('error8').textContent = "Please provide an answer.";
+            }
         }
+
     </script>
 </body>
 </html>
