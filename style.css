@@ -1,23 +1,20 @@
-/* CSS for Desktop */
+/* General Styles */
+body {
+    background-color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 .page {
     display: none;
+    border-radius: 15px;
+    background-color: rgb(183, 255, 251);
+    padding: 15px;
 }
 
 .page.active {
     display: block;
-}
-
-body {
-    background-color: antiquewhite;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.page {
-    border-radius: 15px;
-    background-color: rgb(183, 255, 251);
-    padding: 15px;
-    margin: 20px auto; /* Center the pages horizontally */
-    max-width: 600px; /* Limit width for better readability */
 }
 
 input, button {
@@ -39,31 +36,28 @@ button {
 
 /* Responsive Media Query for Phones */
 @media only screen and (max-width: 600px) {
-    body{
+    body {
         background-image: url('background.gif');
         background-size: cover;
         background-position: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
         overflow: hidden;
     }
 
     .page {
-       width: 80%;
-       height: 45%;
-       border-top: 2px solid #FFFFFF75;
-       border-left: 2px solid #FFFFFF75;
-       box-shadow: 5px 5px 12px #00000035;
-       background: #FFFFFF25;
-       border-radius: 15px;
-       overflow: hidden;
-       backdrop-filter: blur(4px);
-       margin-bottom: 220px;
+        width: 80%;
+        border: 2px solid #FFFFFF75;
+        box-shadow: 5px 5px 12px #00000035;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 15px;
+        overflow: hidden;
+        backdrop-filter: blur(4px);
+        margin-bottom: 220px;
     }
+
     input, button {
         padding: 8px;
         font-size: 15px;
@@ -71,18 +65,23 @@ button {
         margin-bottom: 30px;
     }
 
-    #page1, #page2{
+    #page1, #page2 {
         color: #27476c;
         font-size: 15px;
         text-align: center;
     }
-    
+
+    /* Locking view into portrait mode */
+    @media screen and (orientation: landscape) {
+        body {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            width: 100vh;
+            height: 100vw;
+            overflow-x: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+    }
 }
-
-*{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-
