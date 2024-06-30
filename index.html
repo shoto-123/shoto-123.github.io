@@ -9,7 +9,7 @@
 <body>
     <!-- Page 1 -->
     <div id="page1" class="page active">
-        <h2>Welcome to the Questionnaire</h2>
+        <h2>Welcome to the Activty</h2>
         <i>Type your number</i>
         <input type="text" id="userNumber" placeholder="put your number here"><br>
         <button type="button" onclick="showCodeInput()">Submit</button>
@@ -80,6 +80,20 @@
         <p>In what month is the anniversary of our church?</p>
         <input type="text" id="answer8"><br>
         <p id="error8" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(8)">Next</button>
+    </div>
+    <div id="question9" class="page">
+        <h2>Question 9</h2>
+        <p>who is the friend of bartolomew?</p>
+        <input type="text" id="answer9"><br>
+        <p id="error9" style="color: red;"></p>
+        <button type="button" onclick="validateAnswer(9)">Next</button>
+    </div>
+    <div id="question10" class="page">
+        <h2>Question 10</h2>
+        <p>who is the character of last topic?</p>
+        <input type="text" id="answer10"><br>
+        <p id="error10" style="color: red;"></p>
         <button type="button" onclick="submitQuestionnaire()">Submit</button>
     </div>
 
@@ -116,7 +130,9 @@
             5: "4",
             6: "philippos",
             7: "john",
-            8: "march"
+            8: "march",
+            9: "philip",
+            10:"david",
         };
 
         function showCodeInput() {
@@ -154,8 +170,8 @@
                 const nextQuestionId = `question${questionNumber + 1}`;
 
                 document.getElementById(currentQuestionId).classList.remove('active');
-                if (nextQuestionId === 'question9') {
-                    document.getElementById('question8').classList.remove('active');
+                if (nextQuestionId === 'question11') {
+                    document.getElementById('question10').classList.remove('active');
                     document.getElementById('finishedPage').classList.add('active');
                     const now = new Date();
                     const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
@@ -169,17 +185,17 @@
         }
 
         function submitQuestionnaire() {
-            const answerInput = document.getElementById('answer8').value.trim();
-            const correctAnswer = answers[8];
+            const answerInput = document.getElementById('answer10').value.trim();
+            const correctAnswer = answers[10];
 
             if (answerInput.toLowerCase() === correctAnswer.toLowerCase()) {
-                document.getElementById('question8').classList.remove('active');
+                document.getElementById('question10').classList.remove('active');
                 document.getElementById('finishedPage').classList.add('active');
                 const now = new Date();
                 const timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + '.' + now.getMilliseconds();
                 document.getElementById('completionTime').textContent = timeString;
             } else {
-                document.getElementById('error8').textContent = "Please provide an answer.";
+                document.getElementById('error10').textContent = "Incorrect answer. Please try again.";
             }
         }
 
